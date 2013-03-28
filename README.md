@@ -12,6 +12,14 @@ With browserify
 
 Otherwise copy `leaflet-pip.min.js`.
 
+## example
+
+```
+var gjLayer = L.geoJson(statesData);
+var results = leafletPip.pointInLayer([-88, 38], gjLayer);
+// results is an array of L.Polygon objects containing that point
+```
+
 ## api
 
 ### `leafletPip.pointInLayer(point, layer L.GeoJSON)`
