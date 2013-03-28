@@ -14,7 +14,7 @@ Otherwise copy `leaflet-pip.min.js`.
 
 ## api
 
-`leafletPip.pointInLayer(point, layer L.GeoJSON)`
+### `leafletPip.pointInLayer(point, layer L.GeoJSON)`
 
 Point can be:
 
@@ -31,3 +31,10 @@ An array of polygons in which the given point resides, an empty array if there
 are none. The polygons are returned as direct sublayers, so they can include
 MultiPolygons. You can call `pointInLayer` again on those if you want the
 sub-polygon result.
+
+### `leafletPip.bassackwards`
+
+Leaflet treats literate coordinate arrays as `[lat, lon]`, unlike GeoJSON
+and [any true scotsman](http://en.wikipedia.org/wiki/No_true_Scotsman). `leaflet-pip`
+treats literate coordinate arrays as `[lon, lat]`, but if you set `bassackwards`
+to true, it'll do things the Leaflet/Google Maps API way.
