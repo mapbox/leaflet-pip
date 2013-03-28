@@ -1,0 +1,24 @@
+{
+  "name": "leaflet-pip",
+  "version": "0.0.0",
+  "description": "point in polygon searches for leaflet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "leaflet",
+    "plugin",
+    "point",
+    "in",
+    "polygon",
+    "geo",
+    "geographical"
+  ],
+  "author": "Tom MacWright <tom@macwright.org>",
+  "license": "BSD",
+  "dependencies": {
+    "point-in-polygon": "0.0.0"
+  }
+}

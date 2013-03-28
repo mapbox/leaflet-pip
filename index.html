@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet Point in Polygon</title>
+        <link rel='stylesheet' type='text/css' href='' />
+        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+        <![endif]-->
+        <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+        <style>
+        body { width: 500px; margin: 20px auto; font: normal 12px/20px sans-serif; }
+        #map { width: 500px; height: 300px; }
+        #me {
+            background: darkblue;
+            color:#fff;
+            border-radius:5px;
+            border-width:0;
+            padding:10px;
+            font-size:20px;
+            width: 100%;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Leaflet Point in Polygon</h1>
+        <p>a simple 'plugin' for doing point-in-polygon intersections with
+            Leaflet vector layers.
+        <a href='https://github.com/tmcw/leaflet-pip'>fork, copy, download,
+            learn about it on GitHub</a>.</p>
+        <div id='map'></div>
+        <button id='me'>Find Me</button>
+        <script src='site/states.js'></script>
+        <script src='site/bundle.js'></script>
+    </body>
+</html>
