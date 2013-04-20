@@ -22,7 +22,7 @@ var results = leafletPip.pointInLayer([-88, 38], gjLayer);
 
 ## api
 
-### `leafletPip.pointInLayer(point, layer L.GeoJSON)`
+### `leafletPip.pointInLayer(point, layer L.GeoJSON, [first])`
 
 Point can be:
 
@@ -32,6 +32,14 @@ Point can be:
 Layer must be:
 
 * A `L.geoJSON` layer
+
+`first` can be:
+
+* `boolean`: `true` to accept the first match, or `false` to return all
+  polygons containing this point. This can be useful if you know that your
+  polygons are non-overlapping or don't care about more than one result,
+  since it will be much faster. By default, **this is false** and all matches
+  are returned.
 
 Returns:
 

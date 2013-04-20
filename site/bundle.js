@@ -31,14 +31,15 @@ function getLls(l) {
 
 var leafletPip = {
     bassackwards: false,
-    pointInLayer: function(p, layer) {
-        "use strict";
-        if (!(layer instanceof L.GeoJSON)) throw 'Error must be L.GeoJSON';
+    pointInLayer: function(p, layer, first) {
+        'use strict';
+        if (!(layer instanceof L.GeoJSON)) throw new Error('must be L.GeoJSON');
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         if (leafletPip.bassackwards) p.reverse();
 
         var results = [];
         layer.eachLayer(function(l) {
+            if (first && results.length) return;
             // multipolygon
             var lls = [];
             if (l instanceof L.MultiPolygon) {
