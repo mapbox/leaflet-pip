@@ -17,6 +17,10 @@ var leafletPip = {
         var results = [];
         layer.eachLayer(function(l) {
             if (first && results.length) return;
+
+            //check bounding box	
+	    if(!l.getBounds().contains(new L.LatLng(p[1], p[0]))) return;
+
             // multipolygon
             var lls = [];
             if (l instanceof L.MultiPolygon) {

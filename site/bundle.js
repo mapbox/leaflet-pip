@@ -1,4 +1,4 @@
-;(function(e,t,n){function r(n,i){if(!t[n]){if(!e[n]){var s=typeof require=="function"&&require;if(!i&&s)return s(n,!0);throw new Error("Cannot find module '"+n+"'")}var o=t[n]={exports:{}};e[n][0](function(t){var i=e[n][1][t];return r(i?i:t)},o,o.exports)}return t[n].exports}for(var i=0;i<n.length;i++)r(n[i]);return r})({1:[function(require,module,exports){
+;(function(e,t,n){function i(n,s){if(!t[n]){if(!e[n]){var o=typeof require=="function"&&require;if(!s&&o)return o(n,!0);if(r)return r(n,!0);throw new Error("Cannot find module '"+n+"'")}var u=t[n]={exports:{}};e[n][0].call(u.exports,function(t){var r=e[n][1][t];return i(r?r:t)},u,u.exports)}return t[n].exports}var r=typeof require=="function"&&require;for(var s=0;s<n.length;s++)i(n[s]);return i})({1:[function(require,module,exports){
 var leafletPip = require('../'),
     map = L.map('map').setView([37.8, -96], 4),
     gjLayer = L.geoJson(statesData);
@@ -40,6 +40,10 @@ var leafletPip = {
         var results = [];
         layer.eachLayer(function(l) {
             if (first && results.length) return;
+
+            //check bounding box	
+	    if(!l.getBounds().contains(new L.LatLng(p[1], p[0]))) return;
+
             // multipolygon
             var lls = [];
             if (l instanceof L.MultiPolygon) {
