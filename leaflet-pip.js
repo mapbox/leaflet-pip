@@ -1,11 +1,23 @@
 (function(e){if("function"==typeof bootstrap)bootstrap("leafletpip",e);else if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else if("undefined"!=typeof ses){if(!ses.ok())return;ses.makeLeafletPip=e}else"undefined"!=typeof window?window.leafletPip=e():global.leafletPip=e()})(function(){var define,ses,bootstrap,module,exports;
-return (function(e,t,n){function r(n,i){if(!t[n]){if(!e[n]){var s=typeof require=="function"&&require;if(!i&&s)return s(n,!0);throw new Error("Cannot find module '"+n+"'")}var o=t[n]={exports:{}};e[n][0](function(t){var i=e[n][1][t];return r(i?i:t)},o,o.exports)}return t[n].exports}for(var i=0;i<n.length;i++)r(n[i]);return r})({1:[function(require,module,exports){
+return (function(e,t,n){function i(n,s){if(!t[n]){if(!e[n]){var o=typeof require=="function"&&require;if(!s&&o)return o(n,!0);if(r)return r(n,!0);throw new Error("Cannot find module '"+n+"'")}var u=t[n]={exports:{}};e[n][0].call(u.exports,function(t){var r=e[n][1][t];return i(r?r:t)},u,u.exports)}return t[n].exports}var r=typeof require=="function"&&require;for(var s=0;s<n.length;s++)i(n[s]);return i})({1:[function(require,module,exports){
 var pip = require('point-in-polygon');
 
-function getLls(l) {
-    var lls = l.getLatLngs(), o = [];
-    for (var i = 0; i < lls.length; i++) o[i] = [lls[i].lng, lls[i].lat];
+function getLls(p) {
+    var o = [];
+    for (var i = 0; i < p.length; i++) o[i] = [p[i].lng, p[i].lat];
     return o;
+}
+
+function loopPolygon(p, lls) {
+    for(var i = 0; i < p.length; i++) {
+        var polygon = p[i];
+        if(polygon[0] instanceof L.LatLng){
+            lls.push(getLls(polygon))
+        } else {
+            loopPolygon(polygon, lls)
+        }
+    }
+    return lls
 }
 
 var leafletPip = {
@@ -15,17 +27,11 @@ var leafletPip = {
         if (!(layer instanceof L.GeoJSON)) throw new Error('must be L.GeoJSON');
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         if (leafletPip.bassackwards) p.reverse();
-
         var results = [];
         layer.eachLayer(function(l) {
             if (first && results.length) return;
-            // multipolygon
-            var lls = [];
-            if (l instanceof L.MultiPolygon) {
-                l.eachLayer(function(sub) { lls.push(getLls(sub)); });
-            } else if (l instanceof L.Polygon) {
-                lls.push(getLls(l));
-            }
+            var polygons = l.getLatLngs()
+            var lls = loopPolygon(polygons, [])
             for (var i = 0; i < lls.length; i++) {
                 if (pip(p, lls[i])) results.push(l);
             }
