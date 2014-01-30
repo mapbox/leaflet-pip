@@ -12,7 +12,7 @@ var leafletPip = {
     bassackwards: false,
     pointInLayer: function(p, layer, first) {
         'use strict';
-        if (!(layer instanceof L.GeoJSON)) throw new Error('must be L.GeoJSON');
+        if (!(layer instanceof L.GeoJSON || layer instanceof L.KML)) throw new Error('must be L.GeoJSON');
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         if (leafletPip.bassackwards) p.reverse();
 
@@ -21,7 +21,7 @@ var leafletPip = {
             if (first && results.length) return;
             // multipolygon
             var lls = [];
-            if (l instanceof L.MultiPolygon) {
+            if (l instanceof L.MultiPolygon || l instanceof L.FeatureGroup) {
                 l.eachLayer(function(sub) { lls.push(getLls(sub)); });
             } else if (l instanceof L.Polygon) {
                 lls.push(getLls(l));
