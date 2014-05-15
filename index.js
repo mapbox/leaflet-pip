@@ -10,7 +10,6 @@ var leafletPip = {
     bassackwards: false,
     pointInLayer: function(p, layer, first) {
         'use strict';
-        if (!(layer instanceof L.GeoJSON)) throw new Error('must be L.GeoJSON');
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         if (leafletPip.bassackwards) p.reverse();
 
