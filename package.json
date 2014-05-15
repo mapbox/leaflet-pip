@@ -1,42 +1,66 @@
 {
-    "name": "leaflet-pip",
-    "version": "0.0.1",
-    "description": "point in polygon searches for leaflet",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "leaflet-pip",
+  "version": "0.0.2",
+  "description": "point in polygon searches for leaflet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "leaflet",
+    "plugin",
+    "point",
+    "in",
+    "polygon",
+    "geo",
+    "geographical"
+  ],
+  "devDependencies": {
+    "mocha": "~1.8",
+    "expect.js": "~0.2.0"
+  },
+  "testling": {
+    "browsers": {
+      "ie": [
+        8,
+        9,
+        10
+      ],
+      "opera": [
+        12
+      ],
+      "firefox": [
+        3.5,
+        6,
+        7,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "chrome": [
+        23,
+        24,
+        25
+      ],
+      "safari": [
+        5.1,
+        6
+      ],
+      "iphone": [
+        6
+      ]
     },
-    "repository": "",
-    "keywords": [
-        "leaflet",
-        "plugin",
-        "point",
-        "in",
-        "polygon",
-        "geo",
-        "geographical"
-    ],
-    "devDependencies": {
-        "mocha": "~1.8",
-        "expect.js": "~0.2.0"
-    },
-    "testling": {
-        "browsers": {
-            "ie": [8, 9, 10],
-            "opera": [12],
-            "firefox": [3.5, 6, 7, 15, 16, 17, 18, 19],
-            "chrome": [23, 24, 25],
-            "safari": [5.1, 6],
-            "iphone": [6]
-        },
-        "harness" : "mocha",
-        "files": [
-            "test/support/leaflet.js"
-        ]
-    },
-    "author": "Tom MacWright <tom@macwright.org>",
-    "license": "BSD",
-    "dependencies": {
-        "point-in-polygon": "0.0.0"
-    }
+    "harness": "mocha",
+    "files": [
+      "test/support/leaflet.js"
+    ]
+  },
+  "author": "Tom MacWright <tom@macwright.org>",
+  "license": "BSD",
+  "dependencies": {
+    "point-in-polygon": "0.0.0"
+  }
 }
