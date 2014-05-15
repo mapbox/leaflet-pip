@@ -1,26 +1,4 @@
-;(function(e,t,n){function r(n,i){if(!t[n]){if(!e[n]){var s=typeof require=="function"&&require;if(!i&&s)return s(n,!0);throw new Error("Cannot find module '"+n+"'")}var o=t[n]={exports:{}};e[n][0](function(t){var i=e[n][1][t];return r(i?i:t)},o,o.exports)}return t[n].exports}for(var i=0;i<n.length;i++)r(n[i]);return r})({1:[function(require,module,exports){
-var leafletPip = require('../'),
-    map = L.map('map').setView([37.8, -96], 4),
-    gjLayer = L.geoJson(statesData);
-
-L.tileLayer('http://a.tiles.mapbox.com/v3/tmcw.map-l1m85h7s/{z}/{x}/{y}.png')
-    .addTo(map);
-
-gjLayer.addTo(map);
-
-document.getElementById('me').onclick = function() {
-    navigator.geolocation.getCurrentPosition(function(pos) {
-        var res = leafletPip.pointInLayer(
-            [pos.coords.longitude, pos.coords.latitude], gjLayer);
-        if (res.length) {
-            document.getElementById('me').innerHTML = res[0].feature.properties.name;
-        } else {
-            document.getElementById('me').innerHTML = 'You aren\'t in America';
-        }
-    });
-};
-
-},{"../":2}],2:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var pip = require('point-in-polygon');
 
 function getLls(l) {
@@ -33,7 +11,6 @@ var leafletPip = {
     bassackwards: false,
     pointInLayer: function(p, layer, first) {
         'use strict';
-        if (!(layer instanceof L.GeoJSON)) throw new Error('must be L.GeoJSON');
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         if (leafletPip.bassackwards) p.reverse();
 
@@ -57,7 +34,7 @@ var leafletPip = {
 
 module.exports = leafletPip;
 
-},{"point-in-polygon":3}],3:[function(require,module,exports){
+},{"point-in-polygon":2}],2:[function(require,module,exports){
 module.exports = function (point, vs) {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
@@ -77,5 +54,26 @@ module.exports = function (point, vs) {
     return inside;
 };
 
-},{}]},{},[1])
-;
+},{}],3:[function(require,module,exports){
+var leafletPip = require('../'),
+    map = L.map('map').setView([37.8, -96], 4),
+    gjLayer = L.geoJson(statesData);
+
+L.tileLayer('http://a.tiles.mapbox.com/v3/tmcw.map-l1m85h7s/{z}/{x}/{y}.png')
+    .addTo(map);
+
+gjLayer.addTo(map);
+
+document.getElementById('me').onclick = function() {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        var res = leafletPip.pointInLayer(
+            [pos.coords.longitude, pos.coords.latitude], gjLayer);
+        if (res.length) {
+            document.getElementById('me').innerHTML = res[0].feature.properties.name;
+        } else {
+            document.getElementById('me').innerHTML = 'You aren\'t in America';
+        }
+    });
+};
+
+},{"../":1}]},{},[3])
