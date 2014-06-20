@@ -1,5 +1,7 @@
 ## point in polygon for Leaflet
 
+[![build status](https://secure.travis-ci.org/mapbox/leaflet-pip.png)](http://travis-ci.org/mapbox/leaflet-pip)
+
 A [Leaflet](http://leafletjs.com/)-friendly API for [point in polygon](http://en.wikipedia.org/wiki/Point_in_polygon)
 operations, using [substack](https://github.com/substack)'s
 [point in polygon](https://github.com/substack/point-in-polygon) library.
