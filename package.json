@@ -23,7 +23,8 @@
     "tape": "~2.13.3",
     "tape-run": "~0.1.1",
     "leaflet": "~0.7.3",
-    "phantomjs": "~1.9.7-9"
+    "phantomjs": "~1.9.7-9",
+    "browserify": "~4.1.11"
   },
   "author": "Tom MacWright <tom@macwright.org>",
   "license": "BSD",
