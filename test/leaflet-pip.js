@@ -46,6 +46,41 @@ test('should not find a point outside', function(t) {
     t.end();
 });
 
+test('is fine with point features', function(t) {
+    var gjLayer = L.geoJson({
+        type: 'Point',
+        coordinates: [0, 0]
+    });
+    t.deepEqual(leafletPip.pointInLayer([50, 150], gjLayer), []);
+    t.end();
+});
+
+test('polygon with holes', function(t) {
+    var gjLayer = L.geoJson({
+        type: 'Polygon',
+        coordinates: [
+            [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
+            [ [100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2] ]
+        ]
+    });
+    t.deepEqual(leafletPip.pointInLayer([100.49,0.50], gjLayer), []);
+    t.deepEqual(leafletPip.pointInLayer([100.51,0.91], gjLayer).length, 1);
+    t.end();
+});
+
+test('multipolygon', function(t) {
+    var gjLayer = L.geoJson({
+        type: 'MultiPolygon',
+        coordinates: [[
+            [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
+            [ [100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2] ]
+        ]]
+    });
+    t.deepEqual(leafletPip.pointInLayer([100.49,0.50], gjLayer), []);
+    t.deepEqual(leafletPip.pointInLayer([100.51,0.91], gjLayer).length, 1);
+    t.end();
+});
+
 test('should throw an error if the argument is not right', function(t) {
     t.throws(function() {
         leafletPip.pointInLayer([50, 150], {});
