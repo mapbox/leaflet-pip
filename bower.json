@@ -12,5 +12,8 @@
     "geo",
     "geographical"
   ],
-  "main": "leaflet-pip.js"
+  "main": "leaflet-pip.js",
+  "dependencies": {
+    "leaflet": ">= 0.7.0"
+  }
 }

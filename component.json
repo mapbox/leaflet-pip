@@ -14,5 +14,8 @@
   ],
   "scripts": [
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "leaflet": ">= 0.7.0"
+  }
 }
