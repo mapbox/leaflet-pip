@@ -12,8 +12,9 @@ var leafletPip = {
 
         layer.eachLayer(function(l) {
             if (first && results.length) return;
-            if ((l instanceof L.MultiPolygon ||
-                 l instanceof L.Polygon) &&
+            console.log(l);
+            if ((l.feature.geometry.type === "MultiPolygon" ||
+                 l.feature.geometry.type === "Polygon") &&
                 gju.pointInPolygon({
                     type: 'Point',
                     coordinates: p
