@@ -5,7 +5,7 @@ var leafletPip = {
     pointInLayer: function(p, layer, first) {
         'use strict';
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
-        else if (leafletPip.bassackwards) p.reverse();
+        else if (leafletPip.bassackwards) p = p.concat().reverse();
 
         var results = [];
 
