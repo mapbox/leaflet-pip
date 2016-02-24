@@ -1,9 +1,10 @@
+/* global L */
+'use strict';
 var gju = require('geojson-utils');
 
 var leafletPip = {
     bassackwards: false,
     pointInLayer: function(p, layer, first) {
-        'use strict';
         if (p instanceof L.LatLng) p = [p.lng, p.lat];
         else if (leafletPip.bassackwards) p = p.concat().reverse();
 
