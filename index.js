@@ -28,7 +28,7 @@ var leafletPip = {
 function isPoly(l) {
   if (L.MultiPolygon) {
     return (l instanceof L.MultiPolygon || l instanceof L.Polygon);
-  } else {    //leaftletjs >= 1.0
+  } else {    //leafletjs >= 1.0
     return (l.feature && l.feature.geometry && l.feature.geometry.type && -1 != ['Polygon', 'MultiPolygon'].indexOf(l.feature.geometry.type));
   }
 }
