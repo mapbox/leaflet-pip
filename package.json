@@ -21,12 +21,12 @@
     "url": "git://github.com/mapbox/leaflet-pip.git"
   },
   "devDependencies": {
-    "browserify": "~4.1.11",
+    "browserify": "~13.0.1",
     "eslint": "^2.2.0",
     "leaflet": "~0.7.3",
-    "phantomjs": "~1.9.7-9",
-    "tape": "~2.13.3",
-    "tape-run": "~0.1.1"
+    "phantomjs": "~2.1.7",
+    "tape": "~4.5.1",
+    "tape-run": "~2.1.4"
   },
   "author": "Tom MacWright <tom@macwright.org>",
   "license": "ISC",

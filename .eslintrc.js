@@ -41,7 +41,6 @@ module.exports = {
         "eol-last": 2,
         "eqeqeq": 2,
         "func-names": 0,
-        "func-style": 2,
         "generator-star-spacing": 2,
         "global-require": 2,
         "guard-for-in": 2,
@@ -105,7 +104,6 @@ module.exports = {
         "no-lone-blocks": 2,
         "no-lonely-if": 2,
         "no-loop-func": 2,
-        "no-magic-numbers": 2,
         "no-mixed-requires": 2,
         "no-multi-spaces": 2,
         "no-multi-str": 2,
@@ -176,7 +174,6 @@ module.exports = {
             "single"
         ],
         "radix": 2,
-        "require-jsdoc": 2,
         "require-yield": 2,
         "semi": 2,
         "semi-spacing": 2,
