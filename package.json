@@ -26,7 +26,8 @@
     "leaflet": "~0.7.3",
     "phantomjs": "~2.1.7",
     "tape": "~4.5.1",
-    "tape-run": "~2.1.4"
+    "tape-run": "~2.1.4",
+    "uglifyjs": "^2.4.10"
   },
   "author": "Tom MacWright <tom@macwright.org>",
   "license": "ISC",
