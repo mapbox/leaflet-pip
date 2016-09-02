@@ -5,8 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint index.js && browserify test/*.js | tape-run",
-    "build": "browserify -s leafletPip index.js > leaflet-pip.js && uglifyjs leaflet-pip.js -c -m > leaflet-pip.min.js"
+    "build-site": "browserify site/site.js > site/bundle.js",
+    "prepublish": "browserify -s leafletPip index.js > leaflet-pip.js && uglifyjs leaflet-pip.js -c -m > leaflet-pip.min.js"
   },
+  "files": [
+    "index.js",
+    "leaflet-pip.js",
+    "leaflet-pip.min.js"
+  ],
   "keywords": [
     "leaflet",
     "plugin",

@@ -12,7 +12,9 @@ With browserify
 
     npm install leaflet-pip
 
-Otherwise copy `leaflet-pip.min.js`.
+Resolve for a CDN/packaged version:
+
+    https://unpkg.com/leaflet-pip@latest/leaflet-pip.js
 
 ## example
 
