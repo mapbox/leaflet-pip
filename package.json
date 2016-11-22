@@ -4,7 +4,9 @@
   "description": "point in polygon searches for leaflet",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js && browserify test/*.js | tape-run",
+    "test": "npm run lint && npm run test-unit",
+    "test-unit": "browserify test/*.js | tape-run",
+    "lint": "eslint index.js",
     "build-site": "browserify site/site.js > site/bundle.js",
     "prepublish": "browserify -s leafletPip index.js > leaflet-pip.js && uglifyjs leaflet-pip.js -c -m > leaflet-pip.min.js"
   },
@@ -29,7 +31,6 @@
   "devDependencies": {
     "browserify": "~13.0.1",
     "eslint": "^2.2.0",
-    "leaflet": "~0.7.3",
     "phantomjs": "~2.1.7",
     "tape": "~4.5.1",
     "tape-run": "~2.1.4"
@@ -37,6 +38,7 @@
   "author": "Tom MacWright <tom@macwright.org>",
   "license": "ISC",
   "dependencies": {
-    "geojson-utils": "~1.1.0"
+    "geojson-utils": "~1.1.0",
+    "uglify-js": "2.7.4"
   }
 }
