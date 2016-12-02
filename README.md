@@ -10,11 +10,11 @@ operations, using [substack](https://github.com/substack)'s
 
 With browserify
 
-    npm install leaflet-pip
+    npm install @mapbox/leaflet-pip
 
 Resolve for a CDN/packaged version:
 
-    https://unpkg.com/leaflet-pip@latest/leaflet-pip.js
+    https://unpkg.com/@mapbox/leaflet-pip@latest/leaflet-pip.js
 
 ## example
 
