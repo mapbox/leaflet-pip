@@ -36,7 +36,7 @@
     "tape-run": "~2.1.4"
   },
   "author": "Tom MacWright <tom@macwright.org>",
-  "license": "ISC",
+  "license": "BSD-2-Clause",
   "dependencies": {
     "geojson-utils": "~1.1.0",
     "uglify-js": "2.7.4"
