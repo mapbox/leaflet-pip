@@ -38,7 +38,6 @@
   "author": "Tom MacWright <tom@macwright.org>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "geojson-utils": "~1.1.0",
-    "uglify-js": "2.7.4"
+    "geojson-utils": "~1.1.0"
   }
 }
