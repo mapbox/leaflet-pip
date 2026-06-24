@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/leaflet-pip",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "point in polygon searches for leaflet",
   "main": "index.js",
   "scripts": {
@@ -40,5 +40,8 @@
   "dependencies": {
     "geojson-utils": "~1.1.0",
     "uglify-js": "2.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
